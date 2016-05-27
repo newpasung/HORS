@@ -18,6 +18,9 @@ public class Doctor {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="docid")
 	private long docId;
+
+	@Column(name = "name")
+	private String Name;
 	// Ò½ÉúÖ°³Æ
 	@Column(name="job_title")
 	private String jobTitle;

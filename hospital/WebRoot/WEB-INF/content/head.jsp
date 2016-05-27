@@ -14,6 +14,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="Cache-Control" content="no-transform" />
 	<meta http-equiv="Cache-Control" content="no-siteapp"/>
 	<title>在线预约挂号系统</title>
-	<link rel="shortcut icon" type="image/png" href="assets/images/icon.jpg">
+	<link rel="shortcut icon" type="image/png" href="/assets/images/icon.jpg">
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
 </head>

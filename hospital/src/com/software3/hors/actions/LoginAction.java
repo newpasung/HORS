@@ -1,5 +1,7 @@
 package com.software3.hors.actions;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
@@ -22,6 +24,13 @@ public class LoginAction extends ActionSupport {
 	/* 登录成功会添加userid到cookie，并在session里添加user对象 ,登录失败会在request里面存入 */
 	@Override
 	public String execute() throws Exception {
+		if (getAccount() == null || getPassword() == null
+				|| getAccount().equals("") || getPassword().endsWith("")) {
+			List<String> errors = new ArrayList<String>();
+			errors.add("没有传递参数");
+			setActionErrors(errors);
+			return "input";
+		}
 		User user = userDao.login(account, password);
 		if (user == null) {
 			return "faile";

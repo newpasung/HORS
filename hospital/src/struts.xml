@@ -13,11 +13,21 @@
 
         <default-action-ref name="index" />
         <action name="index" class="indexAction">
-        <result>/index.jsp</result>
+        <result>/WEB-INF/content/index.jsp</result>
         </action>
         <action name="login" class="loginAction">
-        <result name="success">/showname.jsp</result>
-        <result name="faile">/index.jsp</result>
+        <result name="success">/WEB-INF/content/showname.jsp</result>
+        <result name="faile">/WEB-INF/content/index.jsp</result>
+        </action>
+        
+        <action  name="departments" class="departmentsAction">
+        <result name="success">/WEB-INF/content/test_departments.jsp</result>
+        <result name="input">/WEB-INF/content/error.jsp</result>
+        </action>
+        
+        <action name="doctors" class="doctorsAction">
+        <result name="success">/WEB-INF/content/test_doctors.jsp</result>
+        <result name="input">/WEB-INF/content/error.jsp</result>
         </action>
 
     </package>

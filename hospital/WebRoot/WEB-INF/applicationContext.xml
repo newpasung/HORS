@@ -20,6 +20,12 @@
 p:sessionFactory-ref="sessionFactory"/>
 <bean id="hospitalDao" class= "com.software3.hors.dao.HospitalDaoImpl"
 p:sessionFactory-ref="sessionFactory"/>
+<bean id="departmentDao" class="com.software3.hors.dao.DepartmentDaoImpl"
+p:sessionFactory-ref="sessionFactory"
+/>
+<bean id="doctorDao" class="com.software3.hors.dao.DoctorDaoImpl"
+p:sessionFactory-ref="sessionFactory"
+/>
 
 <!-- 下面是action -->
 <bean id="loginAction" class="com.software3.hors.actions.LoginAction"
@@ -27,6 +33,11 @@ scope="prototype" p:userDao-ref="userDao"/>
 <bean id="indexAction" class="com.software3.hors.actions.IndexAction"
 scope="prototype" p:hospitalDao-ref="hospitalDao"
 />
+<bean id="departmentsAction" class="com.software3.hors.actions.DepartmentsAction"
+scope="prototype" p:departmentDao-ref="departmentDao"
+/>
+<bean id="doctorsAction" class="com.software3.hors.actions.DoctorsAction"
+scope="prototype" p:doctorDao-ref="doctorDao"/>
 
 <!-- 下面是web filter -->
 <bean id="logstatusfilter" class="com.software3.hors.filters.LogStatusFilter"

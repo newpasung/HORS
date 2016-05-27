@@ -12,21 +12,21 @@ import com.software3.hors.domain.Hospital;
 public class IndexAction extends ActionSupport {
 
 	// key是地区，value是医院名
-	private Map<String, List<String>> hospitals;
+	private Map<String, List<Hospital>> hospitals;
 	private BaseDao hospitalDao;
 	@Override
 	public String execute() throws Exception {
 		// 读取所有的医院，并把医院信息包装成map
 		List hospitals = hospitalDao.findAll(Hospital.class);
-		Map<String, List<String>> tempHospitals = new HashMap<String, List<String>>();
+		Map<String, List<Hospital>> tempHospitals = new HashMap<String, List<Hospital>>();
 		for(Object object : hospitals){
 			Hospital hospital = (Hospital) object;
 			if (tempHospitals.containsKey(hospital.getLocation())) {
 				tempHospitals.get(hospital.getLocation())
-						.add(hospital.getName());
+.add(hospital);
 			}else{
-				List<String> arrayList = new ArrayList<String>();
-				arrayList.add(hospital.getName());
+				List<Hospital> arrayList = new ArrayList<Hospital>();
+				arrayList.add(hospital);
 				tempHospitals.put(hospital.getLocation(), arrayList);
 			}
 		}
@@ -34,13 +34,14 @@ public class IndexAction extends ActionSupport {
 		return "success";
 	}
 
-	public Map<String, List<String>> getHospitals() {
+	public Map<String, List<Hospital>> getHospitals() {
 		return hospitals;
 	}
 
-	public void setHospitals(Map<String, List<String>> hospitals) {
+	public void setHospitals(Map<String, List<Hospital>> hospitals) {
 		this.hospitals = hospitals;
 	}
+
 
 	public BaseDao getHospitalDao() {
 		return hospitalDao;
