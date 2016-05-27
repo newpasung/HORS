@@ -34,7 +34,8 @@ scope="prototype" p:userDao-ref="userDao"/>
 scope="prototype" p:hospitalDao-ref="hospitalDao"
 />
 <bean id="departmentsAction" class="com.software3.hors.actions.DepartmentsAction"
-scope="prototype" p:departmentDao-ref="departmentDao"
+scope="prototype" p:departmentDao-ref="departmentDao" p:hospitalDao-ref="hospitalDao"
+
 />
 <bean id="doctorsAction" class="com.software3.hors.actions.DoctorsAction"
 scope="prototype" p:doctorDao-ref="doctorDao"/>

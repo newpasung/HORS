@@ -27,7 +27,7 @@
 							<s:iterator value="hospitals" id="hospitals" status="st">
 								<s:iterator value="#hospitals.value" id="hospital" status="h_st">
 									<li>
-										<s:a action="departments?hospitalId=%{hid}"><s:property value="name"/></s:a>
+										<s:a href="departments?hospitalId=%{hid}"><s:property value="name"/></s:a>
 									</li>
 								</s:iterator>
 							</s:iterator>
@@ -37,7 +37,7 @@
 					    	<ul class="list-inline">
 					    	<s:iterator value='hospitals.get("荔湾")' id="hospitals" status="st">
 					    		<li>
-									<s:a action="departments?hospitalId=%{hid}"><s:property value="name"/></s:a>
+									<s:a href="departments?hospitalId=%{hid}"><s:property value="name"/></s:a>
 								</li>
 					    	</s:iterator>
 					    	</ul>
@@ -46,7 +46,7 @@
 					    	<ul class="list-inline">
 					    	<s:iterator value='hospitals.get("增城")' id="hospitals" status="st">
 					    		<li>
-									<s:a action="departments?hospitalId=%{hid}"><s:property value="name"/></s:a>
+									<s:a href="departments?hospitalId=%{hid}"><s:property value="name"/></s:a>
 								</li>
 					    	</s:iterator>
 					    	</ul>
@@ -55,7 +55,7 @@
 					    	<ul class="list-inline">
 					    	<s:iterator value='hospitals.get("越秀")' id="hospitals" status="st">
 					    		<li>
-									<s:a action="departments?hospitalId=%{hid}"><s:property value="name"/></s:a>
+									<s:a href="departments?hospitalId=%{hid}"><s:property value="name"/></s:a>
 								</li>
 					    	</s:iterator>
 					    	</ul>
@@ -64,7 +64,7 @@
 					    	<ul class="list-inline">
 					    	<s:iterator value='hospitals.get("海珠")' id="hospitals" status="st">
 					    		<li>
-									<s:a action="departments?hospitalId=%{hid}"><s:property value="name"/></s:a>
+									<s:a href="departments?hospitalId=%{hid}"><s:property value="name"/></s:a>
 								</li>
 					    	</s:iterator>
 					    	</ul>
@@ -73,7 +73,7 @@
 					    	<ul class="list-inline">
 					    	<s:iterator value='hospitals.get("天河")' id="hospitals" status="st">
 					    		<li>
-									<s:a action="departments?hospitalId=%{hid}"><s:property value="name"/></s:a>
+									<s:a href="departments?hospitalId=%{hid}"><s:property value="name"/></s:a>
 								</li>
 					    	</s:iterator>
 					    	</ul>
@@ -82,7 +82,7 @@
 					    	<ul class="list-inline">
 					    	<s:iterator value='hospitals.get("黄埔")' id="hospitals" status="st">
 					    		<li>
-									<s:a action="departments?hospitalId=%{hid}"><s:property value="name"/></s:a>
+									<s:a href="departments?hospitalId=%{hid}"><s:property value="name"/></s:a>
 								</li>
 					    	</s:iterator>
 					    	</ul>
@@ -91,7 +91,7 @@
 					    	<ul class="list-inline">
 					    	<s:iterator value='hospitals.get("番禺")' id="hospitals" status="st">
 					    		<li>
-									<s:a action="departments?hospitalId=%{hid}"><s:property value="name"/></s:a>
+									<s:a href="departments?hospitalId=%{hid}"><s:property value="name"/></s:a>
 								</li>
 					    	</s:iterator>
 					    	</ul>
@@ -100,7 +100,7 @@
 					    	<ul class="list-inline">
 					    	<s:iterator value='hospitals.get("花都")' id="hospitals" status="st">
 					    		<li>
-									<s:a action="departments?hospitalId=%{hid}"><s:property value="name"/></s:a>
+									<s:a href="departments?hospitalId=%{hid}"><s:property value="name"/></s:a>
 								</li>
 					    	</s:iterator>
 					    	</ul>
@@ -109,7 +109,7 @@
 					    	<ul class="list-inline">
 					    	<s:iterator value='hospitals.get("白云")' id="hospitals" status="st">
 					    		<li>
-									<s:a action="departments?hospitalId=%{hid}"><s:property value="name"/></s:a>
+									<s:a href="departments?hospitalId=%{hid}"><s:property value="name"/></s:a>
 								</li>
 					    	</s:iterator>
 					    	</ul>
@@ -118,7 +118,7 @@
 					    	<ul class="list-inline">
 					    	<s:iterator value='hospitals.get("南沙")' id="hospitals" status="st">
 					    		<li>
-									<s:a action="departments?hospitalId=%{hid}"><s:property value="name"/></s:a>
+									<s:a href="departments?hospitalId=%{hid}"><s:property value="name"/></s:a>
 								</li>
 					    	</s:iterator>
 					    	</ul>
