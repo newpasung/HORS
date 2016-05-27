@@ -9,13 +9,6 @@
 <jsp:include page="head.jsp" flush="true"/> 
   
 <body>
-	所有的医院：
-	<s:iterator value="hospitals" id="current" status="st">
-	key:<s:property value="key"/>
-	<s:a action="departments?hospitalId=%{value[0].hid}">
-	<s:property value="value[0].name"/>
-	</s:a>
-	</s:iterator>
 <jsp:include page="header.jsp" flush="true"/> 
 <jsp:include page="navigation.jsp" flush="true"/> 
 <div class="container">
