@@ -4,20 +4,19 @@ INSERT INTO `department` (`name`, `hid`) VALUES ('儿科1', '1');
 INSERT INTO `department` (`name`, `hid`) VALUES ('儿科2', '1');
 INSERT INTO `department` (`name`, `hid`) VALUES ('儿科3', '1');
 
-INSERT INTO `doctor` (`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('这个医生一般般', '11', '普通医生', '5', '1');
-INSERT INTO `doctor` (`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('这个医生还行', '11', '下级医生', '5', '1');
-INSERT INTO `doctor` (`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('这个医生好', '11', '中级医生', '5', '1');
-INSERT INTO `doctor` (`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('这个医生很好', '11', '高级医生', '5', '1');
+INSERT INTO `doctor` (`name`,`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('张三','这个医生一般般', '11', '普通医生', '5', '1');
+INSERT INTO `doctor` (`name`,`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('张三1','这个医生还行', '11', '下级医生', '5', '1');
+INSERT INTO `doctor` (`name`,`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('张三2','这个医生好', '11', '中级医生', '5', '1');
+INSERT INTO `doctor` (`name`,`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('张三3','这个医生很好', '11', '高级医生', '5', '1');
 
-INSERT INTO `doctor` (`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('这个医生一般般', '11', '普通医生', '5', '2');
-INSERT INTO `doctor` (`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('这个医生还行', '11', '下级医生', '5', '2');
-INSERT INTO `doctor` (`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('这个医生好', '11', '中级医生', '5', '2');
-INSERT INTO `doctor` (`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('这个医生很好', '11', '高级医生', '5', '2');
+INSERT INTO `doctor` (`name`,`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('张三4','这个医生一般般', '11', '普通医生', '5', '2');
+INSERT INTO `doctor` (`name`,`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('张三5','这个医生还行', '11', '下级医生', '5', '2');
+INSERT INTO `doctor` (`name`,`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('张三6','这个医生好', '11', '中级医生', '5', '2');
+INSERT INTO `doctor` (`name`,`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('张三7','这个医生很好', '11', '高级医生', '5', '2');
 
-INSERT INTO `doctor` (`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('这个医生一般般', '11', '普通医生', '5', '3');
-INSERT INTO `doctor` (`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('这个医生还行', '11', '下级医生', '5', '3');
-INSERT INTO `doctor` (`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('这个医生好', '11', '中级医生', '5', '3');
-INSERT INTO `doctor` (`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('这个医生很好', '11', '高级医生', '5', '3');
+INSERT INTO `doctor` (`name`,`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('张三8','这个医生一般般', '11', '普通医生', '5', '3');
+INSERT INTO `doctor` (`name`,`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('张三9','这个医生还行', '11', '下级医生', '5', '3');
+
 
 INSERT INTO `week_schedule` (`wednesday_t9_remain`, `wednesday_t9_total`, `docid`) VALUES ('4', '4', '1');
 INSERT INTO `week_schedule` (`wednesday_t9_remain`, `wednesday_t9_total`, `docid`) VALUES ('4', '4', '2');
