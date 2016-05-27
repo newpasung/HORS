@@ -49,6 +49,8 @@
 		</div>
 	</div>
 </div>
+<jsp:include page="findByHospital.jsp" flush="true"/> 
+<jsp:include page="findByDisease.jsp" flush="true"/> 
 <%
 if(session.getAttribute(SessionName.USER)!=null){
 %>
@@ -62,6 +64,6 @@ out.flush();
 }
 %>
     <script src="assets/js/jquery.min.js"></script>
-	<script src="asset s/js/bootstrap.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
 </body>
 </html>
