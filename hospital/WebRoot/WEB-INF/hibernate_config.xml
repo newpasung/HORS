@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	 	http://www.springframework.org/schema/tx 
+	 	http://www.springframework.org/schema/tx/spring-tx.xsd
+	 	http://www.springframework.org/schema/aop 
+	 	http://www.springframework.org/schema/aop/spring-aop.xsd">
+<!-- 下面是hibernate的配置 ,注意其中数据库的账号和密码-->
+<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+destroy-method="close"
+p:driverClass="com.mysql.jdbc.Driver"
+p:jdbcUrl="jdbc:mysql://localhost/hospital?useSSL=false"
+p:user="root"
+p:password="123456"
+p:maxPoolSize="40"
+p:minPoolSize="2"
+p:maxIdleTime="30"
+/>
+<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
+p:dataSource-ref="dataSource"
+>
+<property name="hibernateProperties">
+<props>
+<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+<prop key="hibernate.hbm2ddl.auto">update</prop>
+<prop key="current_session_context_class">thread</prop>
+<prop key="hibernate_show_sql">true</prop>
+</props>
+</property>
+<property name="annotatedClasses">
+<!-- 列出所有的po类 -->
+<list>
+<value>com.software3.hors.domain.User</value>
+<value>com.software3.hors.domain.Doctor</value>
+<value>com.software3.hors.domain.Department</value>
+<value>com.software3.hors.domain.Hospital</value>
+<value>com.software3.hors.domain.WeekSchedule</value>
+</list>
+</property>
+</bean>
+<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager"
+p:sessionFactory-ref="sessionFactory"/>
+</beans>

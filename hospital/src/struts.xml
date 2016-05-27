@@ -12,7 +12,7 @@
     <package name="default" namespace="/" extends="struts-default">
 
         <default-action-ref name="index" />
-        <action name="index">
+        <action name="index" class="indexAction">
         <result>/index.jsp</result>
         </action>
         <action name="login" class="loginAction">
