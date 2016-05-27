@@ -1,0 +1,27 @@
+INSERT INTO `hospital` (`desciption`, `hoslevel`, `location`, `name`, `phone`, `picture`) VALUES ('这是一间用来测试的医院', '三甲医院', '广州', '德玛医院', '10086', 'http://www.guahao.gov.cn/hospital/images/hisInfo/1002/%E5%B9%BF%E5%B7%9E%E5%B8%82%E5%A6%87%E5%A5%B3%E5%84%BF%E7%AB%A5%E5%8C%BB%E7%96%97%E4%B8%AD%E5%BF%83.jpg');
+
+INSERT INTO `department` (`name`, `hid`) VALUES ('儿科1', '1');
+INSERT INTO `department` (`name`, `hid`) VALUES ('儿科2', '1');
+INSERT INTO `department` (`name`, `hid`) VALUES ('儿科3', '1');
+
+INSERT INTO `doctor` (`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('这个医生一般般', '11', '普通医生', '5', '1');
+INSERT INTO `doctor` (`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('这个医生还行', '11', '下级医生', '5', '1');
+INSERT INTO `doctor` (`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('这个医生好', '11', '中级医生', '5', '1');
+INSERT INTO `doctor` (`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('这个医生很好', '11', '高级医生', '5', '1');
+
+INSERT INTO `doctor` (`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('这个医生一般般', '11', '普通医生', '5', '2');
+INSERT INTO `doctor` (`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('这个医生还行', '11', '下级医生', '5', '2');
+INSERT INTO `doctor` (`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('这个医生好', '11', '中级医生', '5', '2');
+INSERT INTO `doctor` (`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('这个医生很好', '11', '高级医生', '5', '2');
+
+INSERT INTO `doctor` (`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('这个医生一般般', '11', '普通医生', '5', '3');
+INSERT INTO `doctor` (`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('这个医生还行', '11', '下级医生', '5', '3');
+INSERT INTO `doctor` (`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('这个医生好', '11', '中级医生', '5', '3');
+INSERT INTO `doctor` (`description`, `guahaofei`, `job_title`, `zhenliaofei`, `did`) VALUES ('这个医生很好', '11', '高级医生', '5', '3');
+
+INSERT INTO `week_schedule` (`wednesday_t9_remain`, `wednesday_t9_total`, `docid`) VALUES ('4', '4', '1');
+INSERT INTO `week_schedule` (`wednesday_t9_remain`, `wednesday_t9_total`, `docid`) VALUES ('4', '4', '2');
+INSERT INTO `week_schedule` (`wednesday_t9_remain`, `wednesday_t9_total`, `docid`) VALUES ('4', '4', '3');
+INSERT INTO `week_schedule` (`wednesday_t9_remain`, `wednesday_t9_total`, `docid`) VALUES ('4', '4', '4');
+
+INSERT INTO `user` (`name`, `password`) VALUES ('admin', '123456');

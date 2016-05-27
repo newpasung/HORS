@@ -63,7 +63,13 @@ out.flush();
 <%
 }
 %>
-    <script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
+
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="asset s/js/bootstrap.min.js"></script>
+	所有的医院：
+	<s:iterator value="hospitals" id="current" status="st">
+	key:<s:property value="key"/>
+	value:<s:property value="value"/>
+	</s:iterator>
 </body>
 </html>

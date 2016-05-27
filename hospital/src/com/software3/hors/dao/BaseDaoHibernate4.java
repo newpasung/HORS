@@ -4,9 +4,11 @@ import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.software3.hors.domain.User;
 
+@Transactional
 public abstract class BaseDaoHibernate4<T> implements BaseDao<T> {
 
 	private SessionFactory sessionFactory;
