@@ -52,14 +52,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 	</div>
 </div>
-
-  	
-   	;所有的department：
-	<s:iterator value="departments" id="current" status="st">
-	department<s:property value="#st.count"/>:
-	<s:a href="doctors?departmentId=%{did}">
-	<s:property value="name"/>
-	</s:a>
-	</s:iterator>
-  </body>
+</body>
 </html>
