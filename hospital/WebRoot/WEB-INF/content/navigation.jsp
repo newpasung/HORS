@@ -7,8 +7,8 @@
 			<div class="row" style="padding-bottom:15px">
 				<div class="col-md-12">
 					<ul class="nav nav-tabs">
-				      <li role="presentation" class="active"><a href="#">首页</a></li>
-				      <li role="presentation" class="dropdown">
+				      <li class='active'><a href="#">首页</a></li>
+				      <li class="dropdown">
 				        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
 				          挂号服务 <span class="caret"></span>
 				        </a>
@@ -17,9 +17,9 @@
 				          <li><a href="#">按疾病预约</a></li>
 				        </ul>
 				      </li>
-				      <li role="presentation"><a href="#">预约管理</a></li>
-				      <li role="presentation"><a href="#">缴费管理</a></li>
-				      <li role="presentation" class="dropdown">
+				      <li><a href="#">预约管理</a></li>
+				      <li><a href="#">缴费管理</a></li>
+				      <li class="dropdown">
 				        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
 				          预约指南 <span class="caret"></span>
 				        </a>

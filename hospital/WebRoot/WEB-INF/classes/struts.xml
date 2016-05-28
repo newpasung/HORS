@@ -21,7 +21,7 @@
         </action>
         
         <action  name="departments" class="departmentsAction">
-        <result name="success">/WEB-INF/content/test_departments.jsp</result>
+        <result name="success">/WEB-INF/content/departments.jsp</result>
         <result name="input">/WEB-INF/content/error.jsp</result>
         </action>
         
