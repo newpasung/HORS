@@ -21,19 +21,19 @@ public class Doctor {
 
 	@Column(name = "name")
 	private String Name;
-	// Ò½ÉúÖ°³Æ
+	// Ò½ï¿½ï¿½Ö°ï¿½ï¿½
 	@Column(name="job_title")
 	private String jobTitle;
-	// ¼ò½é
+	// ï¿½ï¿½ï¿½
 	@Column(name="description")
 	private String description;
-	// Õâ¸öÒ½ÉúµÄ¹ÒºÅ·Ñ
+	// ï¿½ï¿½ï¿½Ò½ï¿½ï¿½Ä¹ÒºÅ·ï¿½
 	@Column(name = "guahaofei")
 	private int guahaofei;
-	// ÕïÁÆ·Ñ
+	// ï¿½ï¿½ï¿½Æ·ï¿½
 	@Column(name = "zhenliaofei")
 	private int zhenliaofei;
-	// ËùÔÚ¿ÆÊÒ
+	// ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½
 	@ManyToOne(targetEntity=Department.class)
 	@JoinColumn(name = "did", referencedColumnName = "did")
 	private Department department;
@@ -98,4 +98,13 @@ public class Doctor {
 		this.department = department;
 	}
 
+	public String getName() {
+		return Name;
+	}
+
+	public void setName(String name) {
+		Name = name;
+	}
+
+	
 }
