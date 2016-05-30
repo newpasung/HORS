@@ -20,6 +20,7 @@ public class Doctor {
 
 	@Column(name = "name")
 	private String Name;
+
 	// 职称
 	@Column(name="job_title")
 	private String jobTitle;
@@ -33,6 +34,7 @@ public class Doctor {
 	@Column(name = "zhenliaofei")
 	private int zhenliaofei;
 	// 部门id
+
 	@ManyToOne(targetEntity=Department.class)
 	@JoinColumn(name = "did", referencedColumnName = "did")
 	private Department department;
@@ -85,4 +87,13 @@ public class Doctor {
 		this.department = department;
 	}
 
+	public String getName() {
+		return Name;
+	}
+
+	public void setName(String name) {
+		Name = name;
+	}
+
+	
 }
