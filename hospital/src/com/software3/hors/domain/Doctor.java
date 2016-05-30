@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,34 +20,22 @@ public class Doctor {
 
 	@Column(name = "name")
 	private String Name;
-	// Ò½ÉúÖ°³Æ
+	// èŒç§°
 	@Column(name="job_title")
 	private String jobTitle;
-	// ¼ò½é
+	// ç®€ä»‹
 	@Column(name="description")
 	private String description;
-	// Õâ¸öÒ½ÉúµÄ¹ÒºÅ·Ñ
+	// æŒ‚å·è´¹
 	@Column(name = "guahaofei")
 	private int guahaofei;
-	// ÕïÁÆ·Ñ
+	//
 	@Column(name = "zhenliaofei")
 	private int zhenliaofei;
-	// ËùÔÚ¿ÆÊÒ
+	// éƒ¨é—¨id
 	@ManyToOne(targetEntity=Department.class)
 	@JoinColumn(name = "did", referencedColumnName = "did")
 	private Department department;
-
-	@OneToOne()
-	@JoinColumn(name = "docid", referencedColumnName = "docid")
-	private WeekSchedule weekSchedule;
-
-	public WeekSchedule getWeekSchedule() {
-		return weekSchedule;
-	}
-
-	public void setWeekSchedule(WeekSchedule weekSchedule) {
-		this.weekSchedule = weekSchedule;
-	}
 
 	public long getDocId() {
 		return docId;

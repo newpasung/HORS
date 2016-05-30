@@ -3,6 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -24,8 +25,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
        	所有的doctor：
-	<s:iterator value="doctors" id="current" status="st">
-	doctor<s:property value="#st.count"/>:<s:property value="jobTitle"/>
+	<s:iterator value="doctors" id="doctor" status="st">
+	<s:property value="name"/><br>
 	</s:iterator>
+	<s:debug/>
   </body>
 </html>

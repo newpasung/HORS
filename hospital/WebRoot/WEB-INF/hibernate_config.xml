@@ -30,7 +30,7 @@ p:dataSource-ref="dataSource"
 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
 <prop key="hibernate.hbm2ddl.auto">update</prop>
 <prop key="current_session_context_class">thread</prop>
-<prop key="hibernate_show_sql">true</prop>
+<prop key="hibernate.show_sql">true</prop>
 </props>
 </property>
 <property name="annotatedClasses">
@@ -40,7 +40,8 @@ p:dataSource-ref="dataSource"
 <value>com.software3.hors.domain.Doctor</value>
 <value>com.software3.hors.domain.Department</value>
 <value>com.software3.hors.domain.Hospital</value>
-<value>com.software3.hors.domain.WeekSchedule</value>
+<value>com.software3.hors.domain.WorkArrangement</value>
+<value>com.software3.hors.domain.Order</value>
 </list>
 </property>
 </bean>

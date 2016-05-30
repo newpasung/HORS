@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.software3.hors.dao.BaseDao;
 import com.software3.hors.dao.DepartmentDaoInterf;
 import com.software3.hors.dao.HospitalDaoInterf;
 import com.software3.hors.domain.Department;
@@ -29,7 +28,7 @@ public class DepartmentsAction extends ActionSupport {
 	public String execute() throws Exception {
 		if (getHospitalId() == 0) {
 			List<String> errors = new ArrayList<String>();
-			errors.add("û�д���hospitalId");
+			errors.add("没有参数");
 			setActionErrors(errors);
 			return "input";
 		}
@@ -71,4 +70,5 @@ public class DepartmentsAction extends ActionSupport {
 	}
 
 	
+
 }
