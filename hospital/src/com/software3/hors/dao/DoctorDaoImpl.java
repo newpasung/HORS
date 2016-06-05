@@ -1,6 +1,7 @@
 package com.software3.hors.dao;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -10,6 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.software3.hors.domain.Doctor;
 import com.software3.hors.domain.WorkArrangement;
+
+import utils.DateUtil;
 
 @Transactional
 public class DoctorDaoImpl extends BaseDaoHibernate4<Doctor> implements
@@ -53,6 +56,22 @@ public class DoctorDaoImpl extends BaseDaoHibernate4<Doctor> implements
 				.setDate("senventhday", senventhDayCalendar.getTime())
 				.setLong("docid", docId).list();
 		return list;
+	}
+	
+	@Override
+	public List<Boolean> getHasArrangement(long docId) {
+		int[] next7WeekDays = DateUtil.next7WeekDays();
+		List<Boolean> result = new ArrayList<Boolean>();
+		String sql = "SELECT * FROM work_arrangement WHERE weekday_num = :weekDay and docid = :docid";
+		for (int i: next7WeekDays) {
+			List list = getSessionFactory().getCurrentSession().createSQLQuery(sql)
+					.setInteger("weekDay", i)
+					.setLong("docid", docId)
+					.list();
+			boolean hasArrangement = list.size() == 0 ? false : true;
+			result.add(hasArrangement);
+		}
+		return result;
 	}
 
 }

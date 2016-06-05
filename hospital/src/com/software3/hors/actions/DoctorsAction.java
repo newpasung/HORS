@@ -11,11 +11,15 @@ import com.software3.hors.dao.DoctorDaoInterf;
 import com.software3.hors.domain.Doctor;
 import com.software3.hors.domain.WorkArrangement;
 
+import utils.DateUtil;
+
 public class DoctorsAction extends ActionSupport {
 
 	private long departmentId;
+	private ArrayList<String> daysList;
 	private List<Doctor> doctors;
 	private DoctorDaoInterf doctorDao;
+	private Map<Long, List<Boolean>> hasArrangements;
 	// key是医生的id，值是一个链表，一般没数据是size=0
 	private Map<Long, List<WorkArrangement>> workArrangements;
 	// 通过work_argmid做key，值是时间段内剩余人数
@@ -29,10 +33,16 @@ public class DoctorsAction extends ActionSupport {
 			setActionErrors(errors);
 			return "input";
 		}
+		daysList = DateUtil.next7Days();
+		hasArrangements = new HashMap<Long, List<Boolean>>();
+		
 		doctors = doctorDao.getDocsByDepId(departmentId);
 		peopleRemain = new HashMap<Long, Integer>();
 		workArrangements = new HashMap<Long, List<WorkArrangement>>();
 		for (Doctor doctor : doctors) {
+			List<Boolean> tempHasArrangements = doctorDao.getHasArrangement(doctor.getDocId());
+			hasArrangements.put(doctor.getDocId(), tempHasArrangements);
+			
 			List<WorkArrangement> tempArrangements =doctorDao.getWeekArrangements(doctor.getDocId());
 			workArrangements.put(doctor.getDocId(), tempArrangements);
 			List<Object[]> peopleCount = doctorDao.getCurrentPeopleCount(doctor
@@ -96,5 +106,23 @@ public class DoctorsAction extends ActionSupport {
 	public void setPeopleRemain(Map<Long, Integer> peopleRemain) {
 		this.peopleRemain = peopleRemain;
 	}
+
+	public ArrayList<String> getDaysList() {
+		return daysList;
+	}
+
+	public void setDaysList(ArrayList<String> daysList) {
+		this.daysList = daysList;
+	}
+
+	public Map<Long, List<Boolean>> getHasArrangements() {
+		return hasArrangements;
+	}
+
+	public void setHasArrangements(Map<Long, List<Boolean>> hasArrangements) {
+		this.hasArrangements = hasArrangements;
+	}
+	
+	
 
 }

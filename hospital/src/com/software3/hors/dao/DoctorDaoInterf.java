@@ -10,6 +10,8 @@ public interface DoctorDaoInterf extends BaseDao<Doctor> {
 	List<Doctor> getDocsByDepId(long departmentId);
 
 	List<WorkArrangement> getWeekArrangements(long docId);
+	
+	List<Boolean> getHasArrangement(long docId);
 
 	List<Object[]> getCurrentPeopleCount(long docId);
 

@@ -19,37 +19,31 @@
 					<div class="panel panel-default">
 					  <div class="panel-body">
 					     <p class="text-center">医生</p>
-					  <s:iterator value="doctors" id="current" status="st">
+					  <s:iterator value="doctors" id="doctor" status="st">
 					    	<div class="media">
 							  <div class="media-left">
 							      <img class="media-object" src="http://www.guahao.gov.cn/images/doctor.jpg" alt="...">
 							  </div>
 							  <div class="media-body">
 							    <h4 class="media-heading"><s:property value="Name"/></h4>
-							    <p>doctor<s:property value="#st.count"/>:<s:property value="jobTitle"/></p>
+							    <p><s:property value="jobTitle"/></p>
 							    <p>简介：<s:property value="description"/></p>
 							  </div>
 							  <div class="media-right" style="vertical-align:middle">
 							  	<button type="button" class="btn btn-primary toggle-table-btn" data-id="<s:property value="docId"/>">查看排班表</button>
 							  </div>
 							</div>
-							<div id="table-<s:property value="docId"/>" style="display:none">
-								<table class="table table-striped">
+							<div id="table-<s:property value="docId"/>" style="display:none;margin-top:10px">
+								<table class="table table-striped table-bordered">
 							      <thead>
 							        <tr>
-							          <th></th>
-							          <th>星期一</th>
-							          <th>星期一</th>
-							          <th>星期一</th>
-							          <th>星期一</th>
-							          <th>星期一</th>
-							          <th>星期一</th>
-							          <th>星期一</th>
+							          <s:iterator value="daysList" id="day">
+							            <th><s:property value="day"/></th>
+							          </s:iterator>
 							        </tr>
 							      </thead>
 							      <tbody>
 							        <tr>
-							          <th scope="row">上午</th>
 							          <td>Mark</td>
 							          <td>Otto</td>
 							          <td>@mdo</td>
@@ -59,24 +53,16 @@
 							          <td>Mark</td>
 							        </tr>
 							        <tr>
-							          <th scope="row">下午</th>
-							          <td>Jacob</td>
-							          <td>Thornton</td>
-							          <td>@fat</td>
-							          <td>@fat</td>
-							          <td>@fat</td>
-							          <td>@fat</td>
-							          <td>@fat</td>
-							        </tr>
-							        <tr>
-							          <th scope="row">晚上</th>
-							          <td>Larry</td>
-							          <td>the Bird</td>
-							          <td>@twitter</td>
-							          <td>@twitter</td>
-							          <td>@twitter</td>
-							          <td>@twitter</td>
-							          <td>@twitter</td>
+							        	<s:iterator value="hasArrangements.get(docId)" id="hasArrangement" status="st">
+							        	<td>
+							        	<s:if test="#hasArrangement">
+							        		<a class="btn btn-primary order-btn" data-did='<s:property value="docId"/>' data-day='<s:property value="#st.count"/>'>预约</a>
+							        	</s:if>
+							        	<s:else>
+							        		&nbsp;
+							        	</s:else>
+							        	</td>
+							        	</s:iterator>
 							        </tr>
 							      </tbody>
 							    </table>
