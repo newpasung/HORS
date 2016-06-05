@@ -35,9 +35,11 @@ scope="prototype" p:hospitalDao-ref="hospitalDao"
 />
 <bean id="departmentsAction" class="com.software3.hors.actions.DepartmentsAction"
 scope="prototype" p:departmentDao-ref="departmentDao" p:hospitalDao-ref="hospitalDao"
-
 />
 <bean id="doctorsAction" class="com.software3.hors.actions.DoctorsAction"
+scope="prototype" p:doctorDao-ref="doctorDao"/>
+
+<bean id="workArrangementDataAction" class="com.software3.hors.actions.WorkArrangementDataAction"
 scope="prototype" p:doctorDao-ref="doctorDao"/>
 
 <!-- 下面是web filter -->

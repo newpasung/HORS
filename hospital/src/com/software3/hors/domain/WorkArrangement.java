@@ -22,7 +22,7 @@ public class WorkArrangement {
 	@JoinColumn(name = "docid", referencedColumnName = "docid")
 	private Doctor doctor;
 
-	// 周几的编号，1-7
+	// 周几的编号，0-6(0是周日)
 	@Column(name = "weekday_num")
 	private int weekday_num;
 
@@ -85,5 +85,5 @@ public class WorkArrangement {
 	public void setTotal_people(int total_people) {
 		this.total_people = total_people;
 	}
-
+	
 }

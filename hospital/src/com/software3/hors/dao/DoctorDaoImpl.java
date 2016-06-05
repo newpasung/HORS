@@ -1,5 +1,6 @@
 package com.software3.hors.dao;
 
+import java.math.BigInteger;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -35,6 +36,16 @@ public class DoctorDaoImpl extends BaseDaoHibernate4<Doctor> implements
 				.createSQLQuery(sqlString).addEntity(WorkArrangement.class)
 				.setLong("docid", docId).list();
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<WorkArrangement> getWorkArrangementsByWeekDay(int weekDayNum, long docId) {
+		String sql = "SELECT * FROM work_arrangement WHERE weekday_num = :weekday_num and docid = :docid";
+		return getSessionFactory().getCurrentSession()
+				.createSQLQuery(sql).addEntity(WorkArrangement.class)
+				.setLong("weekday_num", weekDayNum)
+				.setLong("docid", docId).list();
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -56,6 +67,17 @@ public class DoctorDaoImpl extends BaseDaoHibernate4<Doctor> implements
 				.setDate("senventhday", senventhDayCalendar.getTime())
 				.setLong("docid", docId).list();
 		return list;
+	}
+	
+	@Override
+	public int getOrderNumber(Calendar cal, long arrangementId) {
+		String sql = "select count(*) as count from orders where order_date = :date and work_argmid = :arrangementId";
+		List list = getSessionFactory().getCurrentSession().createSQLQuery(sql)
+				.addScalar("count")
+				.setDate("date", cal.getTime())
+				.setLong("arrangementId", arrangementId)
+				.list();
+		return ((BigInteger)list.get(0)).intValue();
 	}
 	
 	@Override

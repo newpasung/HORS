@@ -44,19 +44,10 @@
 							      </thead>
 							      <tbody>
 							        <tr>
-							          <td>Mark</td>
-							          <td>Otto</td>
-							          <td>@mdo</td>
-							          <td>Mark</td>
-							          <td>Mark</td>
-							          <td>Mark</td>
-							          <td>Mark</td>
-							        </tr>
-							        <tr>
 							        	<s:iterator value="hasArrangements.get(docId)" id="hasArrangement" status="st">
 							        	<td>
 							        	<s:if test="#hasArrangement">
-							        		<a class="btn btn-primary order-btn" data-did='<s:property value="docId"/>' data-day='<s:property value="#st.count"/>'>预约</a>
+							        		<a class="btn btn-primary order-btn" data-toggle="modal" data-target="#orderModal" data-did='<s:property value="docId"/>' data-day='<s:property value="#st.count"/>'>预约</a>
 							        	</s:if>
 							        	<s:else>
 							        		&nbsp;
@@ -78,19 +69,46 @@
 		</div>
 	</div>
 </div>
+
+<div class="modal fade" id="orderModal" tabindex="-1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">时段选择</h4>
+      </div>
+      <div class="modal-body">
+       asd
+      </div>
+    </div>
+  </div>
+</div>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 $('.toggle-table-btn').click(function(event){
-	var doc_id = $(event.target).data("id");
-	if($('#table-'+doc_id).css('display') == "none"){
-	  $(event.target).html("隐藏排班表");
-	  $('#table-'+doc_id).css('display','block');
-	} else {
-	  $(event.target).html("查看排班表");
-	  $('#table-'+doc_id).css('display','none');
-	}
+  var doc_id = $(event.target).data("id");
+  if($('#table-'+doc_id).css('display') == "none"){
+    $(event.target).html("隐藏排班表");
+    $('#table-'+doc_id).css('display','block');
+  } else {
+    $(event.target).html("查看排班表");
+    $('#table-'+doc_id).css('display','none');
+  }
 });
+
+$('#orderModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget);
+  var doctorId = button.data('did');
+  var dayId = button.data('day');
+  var modal = $(this);
+  modal.find('.modal-title').text(doctorId + "  " + dayId);
+  $.get("workArrangementData", {doctorId: doctorId, dayId:dayId}, function(data, textStatus){
+	  if (textStatus == "success") {
+		  console.log(data);
+	  }
+  });
+})
 </script>
 </body>
 </html>

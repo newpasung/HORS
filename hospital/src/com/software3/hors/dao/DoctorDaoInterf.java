@@ -1,5 +1,6 @@
 package com.software3.hors.dao;
 
+import java.util.Calendar;
 import java.util.List;
 
 import com.software3.hors.domain.Doctor;
@@ -14,5 +15,8 @@ public interface DoctorDaoInterf extends BaseDao<Doctor> {
 	List<Boolean> getHasArrangement(long docId);
 
 	List<Object[]> getCurrentPeopleCount(long docId);
-
+	
+	List<WorkArrangement> getWorkArrangementsByWeekDay(int weekDayNum, long docId);
+	
+	int getOrderNumber(Calendar cal, long arrangementId);
 }
