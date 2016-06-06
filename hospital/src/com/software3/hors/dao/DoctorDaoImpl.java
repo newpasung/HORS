@@ -40,7 +40,7 @@ public class DoctorDaoImpl extends BaseDaoHibernate4<Doctor> implements
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<WorkArrangement> getWorkArrangementsByWeekDay(int weekDayNum, long docId) {
-		String sql = "SELECT * FROM work_arrangement WHERE weekday_num = :weekday_num and docid = :docid";
+		String sql = "SELECT * FROM work_arrangement WHERE weekday_num = :weekday_num and docid = :docid order by start_num";
 		return getSessionFactory().getCurrentSession()
 				.createSQLQuery(sql).addEntity(WorkArrangement.class)
 				.setLong("weekday_num", weekDayNum)
