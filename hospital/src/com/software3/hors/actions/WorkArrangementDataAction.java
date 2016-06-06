@@ -1,15 +1,16 @@
 package com.software3.hors.actions;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.software3.hors.dao.DoctorDaoInterf;
 import com.software3.hors.domain.WorkArrangement;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
 import utils.DateUtil;
 
 public class WorkArrangementDataAction extends ActionSupport {
@@ -17,7 +18,7 @@ public class WorkArrangementDataAction extends ActionSupport {
 	private int dayId;
 	private DoctorDaoInterf doctorDao;
 	private List<WorkArrangement> workArrangements;
-	private String result;
+	private Map<String,Object> map = new HashMap<String, Object>();
 	
 	@Override
 	public String execute() throws Exception {
@@ -25,19 +26,15 @@ public class WorkArrangementDataAction extends ActionSupport {
 		cal.setTime(new Date());
 		cal.add(Calendar.DATE, dayId);
 		
-		JSONObject jsObject = new JSONObject();
 		workArrangements = doctorDao.getWorkArrangementsByWeekDay(DateUtil.getDayOfWeekday(cal), doctorId);
-		JSONArray arrangementsArray = JSONArray.fromObject(workArrangements);
-		jsObject.put("arrangements", arrangementsArray);
+		map.put("arrangements", workArrangements);
 		
-		JSONArray remainArray = new JSONArray();
+		List<Integer> remainList = new ArrayList<Integer>();
 		for (WorkArrangement arrangement: workArrangements) {
 			int remain = arrangement.getTotal_people() - doctorDao.getOrderNumber(cal, arrangement.getWork_argmid());
-			remainArray.add(remain);
+			remainList.add(remain);
 		}
-		jsObject.put("remain", remainArray);
-		
-		result = jsObject.toString();
+		map.put("remain", remainList);
 		
 		return SUCCESS;
 	}
@@ -82,14 +79,13 @@ public class WorkArrangementDataAction extends ActionSupport {
 		this.workArrangements = workArrangements;
 	}
 
-
-	public String getResult() {
-		return result;
+	public Map<String, Object> getMap() {
+		return map;
 	}
 
 
-	public void setResult(String result) {
-		this.result = result;
+	public void setMap(Map<String, Object> map) {
+		this.map = map;
 	}
 	
 	

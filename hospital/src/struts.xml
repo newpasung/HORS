@@ -9,7 +9,7 @@
     <constant name="struts.devMode" value="true" />
     <constant name="struts.objectFactory" value="spring"/>
 
-    <package name="default" namespace="/" extends="json-default">
+    <package name="default" namespace="/" extends="json-default,struts-default">
 
         <default-action-ref name="index" />
         <action name="index" class="indexAction">
@@ -31,7 +31,10 @@
         </action>
         
         <action name="workArrangementData" class="workArrangementDataAction">
-        	<result type="json"><param name="root">result</param></result>
+        	<result type="json">
+        		<param name="root">map</param>
+        		<param name="contentType">text/html</param>
+        	</result>
         </action> 
 
     </package>

@@ -78,7 +78,18 @@
         <h4 class="modal-title">时段选择</h4>
       </div>
       <div class="modal-body">
-       asd
+       <table class="table table-striped table-bordered">
+	      <thead>
+	        <tr>
+	          <th>时间段</th>
+	          <th>号源总数</th>
+	          <th>剩余号源</th>
+	          <th>操作</th>
+	        </tr>
+	      </thead>
+	      <tbody id="order-table-body">
+	      </tbody>
+	    </table>
       </div>
     </div>
   </div>
@@ -102,10 +113,21 @@ $('#orderModal').on('show.bs.modal', function (event) {
   var doctorId = button.data('did');
   var dayId = button.data('day');
   var modal = $(this);
-  modal.find('.modal-title').text(doctorId + "  " + dayId);
+  //modal.find('.modal-title').text(doctorId + "  " + dayId);
   $.get("workArrangementData", {doctorId: doctorId, dayId:dayId}, function(data, textStatus){
 	  if (textStatus == "success") {
-		  console.log(data);
+		  var json = eval('(' + data + ')');
+		  var html = "";
+		  for(var i=0;i<json.arrangements.length;i++) {
+			  html += "<tr>";
+			  arrangement = json.arrangements[i];
+			  html += "<td>" + arrangement.start_num + ":00 - " + arrangement.end_num + ":00" + "</td>";
+			  html += "<td>" + arrangement.total_people + "</td>";
+			  html += "<td>" + json.remain[i] + "</td>";
+			  html += "<td><a class='btn btn-primary' href='#'>预约</td>";
+			  html += "</tr>";
+		  }
+		  $('#order-table-body').html(html);
 	  }
   });
 })
