@@ -1,5 +1,12 @@
 *.class
-
+.project
+.metadata
+tmp/**
+tmp/**/*
+local.properties
+.classpath
+.settings/
+.loadpath
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
