@@ -19,4 +19,7 @@ public interface DoctorDaoInterf extends BaseDao<Doctor> {
 	List<WorkArrangement> getWorkArrangementsByWeekDay(int weekDayNum, long docId);
 	
 	int getOrderNumber(Calendar cal, long arrangementId);
+
+	WorkArrangement getArrangement(long arrangemengId);
+
 }

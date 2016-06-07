@@ -11,4 +11,6 @@ public interface BaseDao<T> {
 
 	T getOneById(Class<T> entityClass, Serializable id);
 
+	boolean update(T entity);
+
 }

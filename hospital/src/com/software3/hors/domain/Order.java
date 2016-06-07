@@ -35,11 +35,23 @@ public class Order {
 
 	// 从这里得到时间段等信息
 	@ManyToOne
-	@JoinColumn(name = "work_argmid")
+	@JoinColumn(name = "work_argmid", referencedColumnName = "work_argmid")
 	private WorkArrangement workArrangement;
 
-	enum OrderStatus {
+	@ManyToOne
+	@JoinColumn(name = "uid", referencedColumnName = "uid")
+	private User user;
+
+	public enum OrderStatus {
 		WAITFORPAY, WAITFORCURE, FINISH, CANCEL
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public long getOrderId() {

@@ -7,7 +7,6 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <jsp:include page="head.jsp" flush="true"/> 

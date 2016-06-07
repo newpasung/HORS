@@ -36,6 +36,19 @@
         		<param name="contentType">text/html</param>
         	</result>
         </action> 
+        
+        <action name="order" class="orderAction">
+        <result name="success">/WEB-INF/content/payment.jsp</result>
+        <result name="fail" type="redirectAction" >
+        <param name="actionName">doctors</param>
+        <param name="departmentId">${order.workArrangement.doctor.department.did}</param>
+        </result>
+        </action>
+        
+        <action name="payment" class="paymentAction">
+        <result name="success">/WEB-INF/content/myorders.jsp</result>
+        <result name="fail">/WEB-INF/content/myorders.jsp</result>
+        </action>
 
     </package>
     

@@ -37,4 +37,18 @@ public class DateUtil {
 		}
 		return next7WeekDays;
 	}
+
+	// 把date变为yyyy-MM-dd
+	public static String formatDate(Date data) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		return sdf.format(data);
+	}
+
+	// 把calendar变为yyyy-MM-dd
+	@SuppressWarnings("deprecation")
+	public static String formatDate(Calendar data) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		return sdf.format(data.getTime());
+	}
+
 }

@@ -25,6 +25,16 @@ public abstract class BaseDaoHibernate4<T> implements BaseDao<T> {
 				.list();
 	}
 
+	@Override
+	public boolean update(T entity) {
+		try {
+			getSessionFactory().getCurrentSession().update(entity);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public T getOneById(Class<T> entityClass, Serializable id) {

@@ -10,10 +10,10 @@ import java.util.Locale;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import utils.DateUtil;
+
 import com.software3.hors.domain.Doctor;
 import com.software3.hors.domain.WorkArrangement;
-
-import utils.DateUtil;
 
 @Transactional
 public class DoctorDaoImpl extends BaseDaoHibernate4<Doctor> implements
@@ -94,6 +94,13 @@ public class DoctorDaoImpl extends BaseDaoHibernate4<Doctor> implements
 			result.add(hasArrangement);
 		}
 		return result;
+	}
+
+
+	@Override
+	public WorkArrangement getArrangement(long arrangemengId) {
+		return (WorkArrangement) getSessionFactory().getCurrentSession().get(
+				WorkArrangement.class, arrangemengId);
 	}
 
 }
