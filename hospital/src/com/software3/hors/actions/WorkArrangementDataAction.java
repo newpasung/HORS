@@ -7,13 +7,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.opensymphony.xwork2.ActionSupport;
 import com.software3.hors.dao.DoctorDaoInterf;
 import com.software3.hors.domain.WorkArrangement;
 
 import utils.DateUtil;
 
-public class WorkArrangementDataAction extends ActionSupport {
+public class WorkArrangementDataAction extends BasicAction {
 	private long doctorId;
 	private int dayId;
 	private DoctorDaoInterf doctorDao;

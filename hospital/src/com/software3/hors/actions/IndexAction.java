@@ -5,18 +5,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.opensymphony.xwork2.ActionSupport;
 import com.software3.hors.dao.BaseDao;
 import com.software3.hors.domain.Hospital;
 
-public class IndexAction extends ActionSupport {
+public class IndexAction extends BasicAction {
 
-	// key是地区，value是医院名
+
 	private Map<String, List<Hospital>> hospitals;
 	private BaseDao hospitalDao;
 	@Override
 	public String execute() throws Exception {
-		// 读取所有的医院，并把医院信息包装成map
+
 		List hospitals = hospitalDao.findAll(Hospital.class);
 		Map<String, List<Hospital>> tempHospitals = new HashMap<String, List<Hospital>>();
 		for(Object object : hospitals){

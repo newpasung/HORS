@@ -1,6 +1,7 @@
 package com.software3.hors.dao;
 
 import java.util.Calendar;
+import java.util.List;
 
 import com.software3.hors.domain.Order;
 import com.software3.hors.domain.Order.OrderStatus;
@@ -41,11 +42,19 @@ public class OrderDaoImpl extends BaseDaoHibernate4<Order> implements
 	@Override
 	public boolean pay(long orderId) {
 		Order order = getOneById(Order.class, orderId);
-		if (order.getStatus() != OrderStatus.WAITFORPAY) {
+		if (order == null || order.getStatus() != OrderStatus.WAITFORPAY) {
 			return false;
 		}
 		order.setStatus(OrderStatus.WAITFORCURE);
 		return update(order);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Order> findAllByUid(long uid) {
+		String sql = "select * from orders where uid=:uid order by order_date DESC";
+		return getSessionFactory().getCurrentSession().createSQLQuery(sql).addEntity(Order.class).setLong("uid", uid)
+				.list();
 	}
 
 }

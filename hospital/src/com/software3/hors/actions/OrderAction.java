@@ -7,22 +7,23 @@ import java.util.List;
 import java.util.Locale;
 
 import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.ActionSupport;
 import com.software3.hors.constats.SessionName;
 import com.software3.hors.dao.OrderDaoIntf;
 import com.software3.hors.domain.Order;
 import com.software3.hors.domain.User;
 
-public class OrderAction extends ActionSupport {
+public class OrderAction extends BasicAction {
 
-	// 今天之后的第n天
+	// 比今天延后n日
 	private int dayAfter;
-	// 工作安排的id
+	// 工作安排id1
 	private long workargmId;
 
 	private Order order;
 
 	private OrderDaoIntf orderDao;
+
+	private List<Order> myOrders;
 
 	@Override
 	public String execute() throws Exception {
@@ -31,25 +32,37 @@ public class OrderAction extends ActionSupport {
 		setDayAfter(1);
 		setWorkargmId(1l);
 		// //////////////////
-		// 先获取真正的日期
+		// 获取实际的日期
 		Calendar calendar = new GregorianCalendar(Locale.CHINA);
 		calendar.add(Calendar.DAY_OF_MONTH, dayAfter);
-		// 直接从session获取user
+		// 从session获取user对象
 		User user = (User) ActionContext.getContext().getSession()
 				.get(SessionName.USER);
 		if (user == null) {
-			return "fail";
+			List<String> errors = new ArrayList<String>();
+			errors.add("未登陆不能预约");
+			setActionErrors(errors);
+			return "error";
 		}
 		Order tempOrder = orderDao.createOrder(calendar, workargmId, user);
 		if (tempOrder != null) {
 			setOrder(tempOrder);
 			return "success";
 		} else {
-			List<String> errors = new ArrayList<String>();
-			errors.add("提交预约申请失败");
-			setActionErrors(errors);
-			return "fail";
+			setActionErrors(strs2List("无法创建预约"));
+			return "error";
 		}
+	}
+
+	public String myOrders() {
+		// 从session获取user
+		User user = (User) ActionContext.getContext().getSession().get(SessionName.USER);
+		if (user == null) {
+			setActionErrors(strs2List("请先登录再查看预约记录"));
+			return "error";
+		}
+		setMyOrders(orderDao.findAllByUid(user.getId()));
+		return "success";
 	}
 
 	public int getDayAfter() {
@@ -82,6 +95,14 @@ public class OrderAction extends ActionSupport {
 
 	public void setOrderDao(OrderDaoIntf orderDao) {
 		this.orderDao = orderDao;
+	}
+
+	public List<Order> getMyOrders() {
+		return myOrders;
+	}
+
+	public void setMyOrders(List<Order> myOrders) {
+		this.myOrders = myOrders;
 	}
 
 }

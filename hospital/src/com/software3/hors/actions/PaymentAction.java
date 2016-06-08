@@ -1,9 +1,8 @@
 package com.software3.hors.actions;
 
-import com.opensymphony.xwork2.ActionSupport;
 import com.software3.hors.dao.OrderDaoIntf;
 
-public class PaymentAction extends ActionSupport {
+public class PaymentAction extends BasicAction {
 
 	private long orderId;
 	private OrderDaoIntf orderDao;
@@ -13,7 +12,8 @@ public class PaymentAction extends ActionSupport {
 			return "success";
 		}
 		else{
-			return "fail";
+			setActionErrors(strs2List("付款失败"));
+			return "error";
 		}
 	}
 

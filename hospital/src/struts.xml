@@ -12,12 +12,16 @@
     <package name="default" namespace="/" extends="json-default,struts-default">
 
         <default-action-ref name="index" />
+        <global-results >
+        <result name="error">/WEB-INF/content/error.jsp</result>
+        </global-results>
         <action name="index" class="indexAction">
         <result>/WEB-INF/content/index.jsp</result>
         </action>
-        <action name="login" class="loginAction">
-        <result name="success">/WEB-INF/content/showname.jsp</result>
-        <result name="faile">/WEB-INF/content/index.jsp</result>
+        <action name="logedin" class="logAction">
+        <result name="success" type="redirectAction">
+        <param name="actionName">index</param>
+        </result>
         </action>
         
         <action  name="departments" class="departmentsAction">
@@ -46,8 +50,13 @@
         </action>
         
         <action name="payment" class="paymentAction">
-        <result name="success">/WEB-INF/content/myorders.jsp</result>
-        <result name="fail">/WEB-INF/content/myorders.jsp</result>
+        <result name="success" type="redirectAction">
+        <param name="actionName">ordermyOrders</param>
+		</result>
+        </action>
+        
+        <action name="order*" method="{1}" class="orderAction">
+        <result name="success">/WEB-INF/content/{1}.jsp</result>
         </action>
 
     </package>

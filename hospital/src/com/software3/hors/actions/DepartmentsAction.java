@@ -3,13 +3,12 @@ package com.software3.hors.actions;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.opensymphony.xwork2.ActionSupport;
 import com.software3.hors.dao.DepartmentDaoInterf;
 import com.software3.hors.dao.HospitalDaoInterf;
 import com.software3.hors.domain.Department;
 import com.software3.hors.domain.Hospital;
 
-public class DepartmentsAction extends ActionSupport {
+public class DepartmentsAction extends BasicAction {
 
 	private long hospitalId;
 	private List<Department> departments;

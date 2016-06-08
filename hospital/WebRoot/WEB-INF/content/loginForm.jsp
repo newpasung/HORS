@@ -5,7 +5,7 @@
       <h3 class="panel-title">用户登录</h3>
     </div>
     <div class="panel-body">
-      <form  action="login" method="post" style="margin-bottom: 0px;">
+      <form  action="logedin" method="post" style="margin-bottom: 0px;">
 		  <div class="form-group">
 		    <label for="login_username">账号：</label>
 		    <input id="login_username" name="account" type="text" class="form-control" placeholder="">

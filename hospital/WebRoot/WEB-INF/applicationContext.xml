@@ -32,8 +32,7 @@ p:sessionFactory-ref="sessionFactory" p:doctorDao-ref="doctorDao"
 />
 
 <!-- 下面是action -->
-<bean id="loginAction" class="com.software3.hors.actions.LoginAction"
-scope="prototype" p:userDao-ref="userDao"/>
+
 <bean id="indexAction" class="com.software3.hors.actions.IndexAction"
 scope="prototype" p:hospitalDao-ref="hospitalDao"
 />
@@ -49,6 +48,13 @@ scope="prototype" p:doctorDao-ref="doctorDao"/>
 <bean id="orderAction" class="com.software3.hors.actions.OrderAction"
 scope="prototype" p:orderDao-ref="orderDao"/>
 
+<bean id="logAction" class="com.software3.hors.actions.LoginAction" 
+scope="prototype" p:userDao-ref="userDao"
+/>
+
+<bean id="paymentAction" class="com.software3.hors.actions.PaymentAction"
+p:orderDao-ref="orderDao" scope="prototype"
+/>
 <!-- 下面是web filter -->
 <bean id="logstatusfilter" class="com.software3.hors.filters.LogStatusFilter"
 p:userDao-ref="userDao" depends-on="userDao"/>

@@ -35,7 +35,7 @@
 						</div>
 					    <div class="tab-pane" id="lw">
 					    	<ul class="list-inline">
-					    	<s:iterator value='hospitals.get("荔湾")' id="hospitals" status="st">
+					   			<s:iterator value='hospitals.get("荔湾")' id="hospitals" status="st">
 					    		<li>
 									<s:a href="departments?hospitalId=%{hid}"><s:property value="name"/></s:a>
 								</li>

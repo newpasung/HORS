@@ -5,13 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.opensymphony.xwork2.ActionSupport;
 import com.software3.hors.dao.DoctorDaoInterf;
 import com.software3.hors.domain.Doctor;
 
 import utils.DateUtil;
 
-public class DoctorsAction extends ActionSupport {
+public class DoctorsAction extends BasicAction {
 
 	private long departmentId;
 	private ArrayList<String> daysList;
