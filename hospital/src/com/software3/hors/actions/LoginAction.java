@@ -35,7 +35,6 @@ public class LoginAction extends BasicAction {
 		}
 		Cookie cookie = new Cookie(CookieName.USERID, user.getId() + "");
 		cookie.setMaxAge(60 * 60 * 24 * 7);// 一个星期
-		cookie.setPath(password);
 		ServletActionContext.getResponse().addCookie(cookie);
 		Map<String, Object> sessionMap = ActionContext.getContext().getSession();
 		sessionMap.put(SessionName.USER, user);

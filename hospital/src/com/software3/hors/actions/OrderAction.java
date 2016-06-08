@@ -28,10 +28,6 @@ public class OrderAction extends BasicAction {
 	@Override
 	public String execute() throws Exception {
 
-		// ////////////////// 测试用
-		setDayAfter(1);
-		setWorkargmId(1l);
-		// //////////////////
 		// 获取实际的日期
 		Calendar calendar = new GregorianCalendar(Locale.CHINA);
 		calendar.add(Calendar.DAY_OF_MONTH, dayAfter);

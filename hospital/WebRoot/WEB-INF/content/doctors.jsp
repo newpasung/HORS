@@ -124,7 +124,7 @@ $('#orderModal').on('show.bs.modal', function (event) {
 			  html += "<td>" + arrangement.start_num + ":00 - " + arrangement.end_num + ":00" + "</td>";
 			  html += "<td>" + arrangement.total_people + "</td>";
 			  html += "<td>" + json.remain[i] + "</td>";
-			  html += "<td><a class='btn btn-primary' href='#'>预约</td>";
+			  html += "<td><a class='btn btn-primary' href='./order?dayAfter="+ dayId + "&&workargmId=" + arrangement.work_argmid + "'>预约</td>";
 			  html += "</tr>";
 		  }
 		  $('#order-table-body').html(html);

@@ -51,18 +51,6 @@
 </div>
 <jsp:include page="findByHospital.jsp" flush="true"/> 
 <jsp:include page="findByDisease.jsp" flush="true"/> 
-<%
-if(session.getAttribute(SessionName.USER)!=null){
-%>
-	根据cookie，您已经登录，用户名:
-<% 
-User user =(User) session.getAttribute(SessionName.USER);
-out.print(user.getName());
-out.flush();
-%>
-<%
-}
-%>
 
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>

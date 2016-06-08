@@ -43,10 +43,6 @@
         
         <action name="order" class="orderAction">
         <result name="success">/WEB-INF/content/payment.jsp</result>
-        <result name="fail" type="redirectAction" >
-        <param name="actionName">doctors</param>
-        <param name="departmentId">${order.workArrangement.doctor.department.did}</param>
-        </result>
         </action>
         
         <action name="payment" class="paymentAction">
@@ -58,7 +54,12 @@
         <action name="order*" method="{1}" class="orderAction">
         <result name="success">/WEB-INF/content/{1}.jsp</result>
         </action>
+        
+        <action name="logout" class="logoutAction">
+        <result name="success" type="redirectAction">
+        <param name="actionName">index</param>
+        </result>
+        </action>
 
     </package>
-    
 </struts>
