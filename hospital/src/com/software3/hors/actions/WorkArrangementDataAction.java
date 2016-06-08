@@ -3,8 +3,10 @@ package com.software3.hors.actions;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import com.software3.hors.dao.DoctorDaoInterf;
@@ -21,7 +23,7 @@ public class WorkArrangementDataAction extends BasicAction {
 	
 	@Override
 	public String execute() throws Exception {
-		Calendar cal = Calendar.getInstance();
+		Calendar cal = new GregorianCalendar(Locale.CHINA);
 		cal.setTime(new Date());
 		cal.add(Calendar.DATE, dayId);
 		

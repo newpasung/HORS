@@ -25,7 +25,7 @@
 							      <img class="media-object" src="http://www.guahao.gov.cn/images/doctor.jpg" alt="...">
 							  </div>
 							  <div class="media-body">
-							    <h4 class="media-heading"><s:property value="Name"/></h4>
+							    <h4 class="media-heading" id='doctor-<s:property value="docId"/>'><s:property value="Name"/></h4>
 							    <p><s:property value="jobTitle"/></p>
 							    <p>简介：<s:property value="description"/></p>
 							  </div>

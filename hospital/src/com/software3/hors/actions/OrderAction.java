@@ -30,7 +30,7 @@ public class OrderAction extends BasicAction {
 
 		// 获取实际的日期
 		Calendar calendar = new GregorianCalendar(Locale.CHINA);
-		calendar.add(Calendar.DAY_OF_MONTH, dayAfter);
+		calendar.add(Calendar.DATE, dayAfter);
 		// 从session获取user对象
 		User user = (User) ActionContext.getContext().getSession()
 				.get(SessionName.USER);

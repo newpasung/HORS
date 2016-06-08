@@ -38,7 +38,7 @@ public abstract class BaseDaoHibernate4<T> implements BaseDao<T> {
 	@SuppressWarnings("unchecked")
 	@Override
 	public T getOneById(Class<T> entityClass, Serializable id) {
-		return (T) getSessionFactory().getCurrentSession().get(User.class, id);
+		return (T) getSessionFactory().getCurrentSession().get(entityClass, id);
 	}
 
 	public SessionFactory getSessionFactory() {
