@@ -1,6 +1,7 @@
 package com.software3.hors.dao;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import com.software3.hors.domain.Order;
@@ -53,8 +54,21 @@ public class OrderDaoImpl extends BaseDaoHibernate4<Order> implements
 	@Override
 	public List<Order> findAllByUid(long uid) {
 		String sql = "select * from orders where uid=:uid order by order_date DESC";
-		return getSessionFactory().getCurrentSession().createSQLQuery(sql).addEntity(Order.class).setLong("uid", uid)
+		List<Order> orders = getSessionFactory().getCurrentSession().createSQLQuery(sql).addEntity(Order.class).setLong("uid", uid)
 				.list();
+		Date today = new Date();
+		for(Order order:orders) {
+			if(order.getDate().before(today)) {
+				if(order.getStatus() == OrderStatus.WAITFORPAY) {
+					order.setStatus(OrderStatus.EXPIRED);
+				} 
+				else if (order.getStatus() == OrderStatus.WAITFORCURE) {
+					order.setStatus(OrderStatus.FINISH);
+				}
+			}
+		}
+		
+		return orders;
 	}
 
 }

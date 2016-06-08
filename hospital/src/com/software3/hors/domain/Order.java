@@ -43,7 +43,7 @@ public class Order {
 	private User user;
 
 	public enum OrderStatus {
-		WAITFORPAY, WAITFORCURE, FINISH, CANCEL
+		WAITFORPAY, WAITFORCURE, FINISH, CANCEL, EXPIRED
 	}
 
 	public User getUser() {
