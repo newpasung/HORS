@@ -36,7 +36,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><% out.append(user.getName()); %><span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li> <a href="#">个人中心</a></li>
-            <li><a href="#">我的订单</a></li>
+            <li><a href="ordermyOrders.action">我的订单</a></li>
             <li class="divider"></li>
             <li><a href="./logout">退出</a></li>
           </ul>

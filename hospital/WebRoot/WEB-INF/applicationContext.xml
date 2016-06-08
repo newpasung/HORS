@@ -56,6 +56,10 @@ scope="prototype" p:userDao-ref="userDao"
 p:orderDao-ref="orderDao" scope="prototype"
 />
 
+<bean id="cancelOrderAction" class="com.software3.hors.actions.CancelOrderAction"
+p:orderDao-ref="orderDao" scope="prototype"
+/>
+
 <bean id="logoutAction" class="com.software3.hors.actions.LogoutAction"
 scope="prototype"
 />

@@ -112,7 +112,7 @@ $('#orderModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget);
   var doctorId = button.data('did');
   var dayId = button.data('day');
-  var modal = $(this);
+  //var modal = $(this);
   //modal.find('.modal-title').text(doctorId + "  " + dayId);
   $.get("workArrangementData", {doctorId: doctorId, dayId:dayId}, function(data, textStatus){
 	  if (textStatus == "success") {
@@ -130,7 +130,7 @@ $('#orderModal').on('show.bs.modal', function (event) {
 		  $('#order-table-body').html(html);
 	  }
   });
-})
+});
 </script>
 </body>
 </html>
