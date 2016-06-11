@@ -71,7 +71,7 @@ public class DoctorDaoImpl extends BaseDaoHibernate4<Doctor> implements
 	
 	@Override
 	public int getOrderNumber(Calendar cal, long arrangementId) {
-		String sql = "select count(*) as count from orders where order_date = :date and work_argmid = :arrangementId";
+		String sql = "select count(*) as count from orders where order_date = :date and work_argmid = :arrangementId and order_status <> 'CANCEL'";
 		List list = getSessionFactory().getCurrentSession().createSQLQuery(sql)
 				.addScalar("count")
 				.setDate("date", cal.getTime())
