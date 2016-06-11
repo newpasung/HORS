@@ -17,7 +17,7 @@
 				          <li><a href="#">按疾病预约</a></li>
 				        </ul>
 				      </li>
-				      <li><a href="#">预约管理</a></li>
+				      <li><a href="ordermyOrders.action">预约管理</a></li>
 				      <li class="dropdown">
 				        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
 				          预约指南 <span class="caret"></span>

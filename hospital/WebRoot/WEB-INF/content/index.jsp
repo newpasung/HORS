@@ -11,7 +11,7 @@
 <body>
 <jsp:include page="header.jsp" flush="true"/> 
 <jsp:include page="navigation.jsp" flush="true"/> 
-<div class="container">
+<div class="container" style="margin-bottom: 10px;">
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<div class="row">
@@ -43,14 +43,25 @@
 					</div>
 				</div>
 				<div class="col-md-4">
+				<% 
+					User user = (User)session.getAttribute(SessionName.USER);
+					if(user == null) {
+				%>  
 					<jsp:include page="loginForm.jsp" flush="true"/> 
+				<%
+					} else {
+				%>
+					<jsp:include page="userInfo.jsp" flush="true"/> 
+				<%
+					}
+				%>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-<jsp:include page="findByHospital.jsp" flush="true"/> 
-<jsp:include page="findByDisease.jsp" flush="true"/> 
+
+<jsp:include page="findByHospital.jsp" flush="true"/>
 
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
